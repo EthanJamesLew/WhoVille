@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
-		num = ppl->getNumPeople()
+		num = ppl->getNumPeople();
 		unsigned int sleep(.01);
 		ppl->updateWho();
 		if (num != num2)
