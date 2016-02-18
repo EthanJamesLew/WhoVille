@@ -24,13 +24,6 @@ namespace utils
 
 	unsigned getStrTimeInMin(std::string);
 
-	std::string vectorToStr(std::vector<std::string> vec)
-	{
-		std::string ans = "";
-		for (unsigned i = 0; i < vec.size(); i++)
-		{
-			ans += static_cast<std::string>(vec[i]) + ' \n';
-		}
-		return ans;
-	}
+	std::string vectorToStr(std::vector<std::string> vec);
+
 }
