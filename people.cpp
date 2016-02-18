@@ -61,7 +61,7 @@ std::vector<std::string> People::getDeltaPeople()
 	std::sort(peopleList.begin(), peopleList.end());
 	std::sort(newPeopleList.begin(), newPeopleList.end());
 
-	std::set_intersection(peopleList.begin(), peopleList.end(), newPeopleList.begin(), newPeopleList.end(), std::back_inserter(difference));
+	std::set_difference(peopleList.begin(), peopleList.end(), newPeopleList.begin(), newPeopleList.end(), std::back_inserter(difference));
 	if (difference.size() > 0)
 	{
 		this->peopleList = newPeopleList;
