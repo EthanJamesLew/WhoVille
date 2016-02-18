@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				std::vector<std::string> left = ppl->getLeft();
-				std::cout << utils::vectorToStr(ppl->getLeft()) << " has left.";
+				std::cout << utils::vectorToStr(ppl->getLeft()) << "has left.";
 
 				for (unsigned i = 0; i < left.size(); i++)
 				{
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 					{
 						if (users[j].getName() == left[i])
 						{
-							std::cout <<"Time spent on server: "<< users[j].getMinSpent() <<std::endl;
+							std::cout <<" Time spent on server: "<< users[j].getMinSpent() <<" minutes."<<std::endl;
 							users.erase(users.begin() + j);
 						}
 					}
