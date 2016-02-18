@@ -72,4 +72,14 @@ namespace utils
 		}
 		return min;
 	}
+
+	std::string vectorToStr(std::vector<std::string> vec)
+	{
+		std::string ans;
+		for (unsigned i = 0; i < vec.size(); i++)
+		{
+			ans += vec[i] + " \n";
+		}
+		return ans;
+	}
 }
