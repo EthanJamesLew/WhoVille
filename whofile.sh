@@ -1,0 +1,1 @@
+who > "current_people.who"
