@@ -6,6 +6,8 @@
 
 int main(int argc, char *argv[])
 {
+	system("sh whofile.sh");
+	
 	People *ppl = new People();
 
 	while (true)
