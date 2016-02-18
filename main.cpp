@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	std::vector<Profiler> users;
 
-	std::vector<std::string> init;
+	std::vector<std::string> init = ppl->getPeopleList();
 
 	for (unsigned i = 0; i < init.size(); i++)
 	{
