@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 			std::cout << utils::vectorToStr(ppl->getDeltaPeople()) <<" has changed."<< std::endl;
 			std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
 		}
-		return 0;
 	}
 
 	return 0;
