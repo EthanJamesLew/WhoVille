@@ -30,7 +30,6 @@ void People::printPeople()
 
 void People::updateWho()
 {
-	this->peopleList = newPeopleList;
 	std::string person = "";
 	std::ifstream currentPeople;
 	std::string buffer;
@@ -73,5 +72,6 @@ std::vector<std::string> People::getDeltaPeople()
 		}
 
 	}
+	this->peopleList = newPeopleList;
 	return difference;
 }
