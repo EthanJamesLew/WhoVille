@@ -77,7 +77,7 @@ std::vector<std::string> People::getJoined()
 	return difference;
 }
 
-void resetLists()
+void People::resetLists()
 {
 	this->peopleList = newPeopleList;
 	return;
