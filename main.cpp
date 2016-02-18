@@ -8,18 +8,21 @@ int main(int argc, char *argv[])
 {
 	system("sh whofile.sh");
 	
-	People *ppl = new People();
+	int num = 0;
+	int num2 =0;
 	
-	std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
+	People *ppl = new People();
 
 	while (true)
 	{
+		num = ppl->getNumPeople()
 		unsigned int sleep(.01);
 		ppl->updateWho();
-		if (ppl->getDeltaPeople().size() != 0)
+		if (num != num2)
 		{
 			std::cout << utils::vectorToStr(ppl->getDeltaPeople()) <<" has changed."<< std::endl;
 			std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
+			num2 = num;
 		}
 	}
 
