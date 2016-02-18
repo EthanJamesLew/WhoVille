@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 				std::cout << utils::vectorToStr(ppl->getLeft()) << " has joined." << std::endl;
 			}
 			std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
-			num2 = num;
+			ppl->resetLists();
 		}
 	}
 
