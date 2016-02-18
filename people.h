@@ -13,6 +13,7 @@ public:
 	std::vector<std::string> getJoined();
 	std::vector<std::string> getLeft();
 	unsigned getNumPeople();
+	void resetLists();
 private:
 	std::vector<std::string> peopleList;
 	std::vector <std::string> newPeopleList;
