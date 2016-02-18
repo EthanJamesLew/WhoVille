@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
+		std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
 		unsigned int sleep(.01);
 		ppl->updateWho();
 		if (ppl->getDeltaPeople().size() != 0)
