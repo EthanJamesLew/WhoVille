@@ -9,6 +9,7 @@
 #include <algorithm>    // std::set_difference, std::sort
 #include <stdio.h>
 #include<stdlib.h>
+#include <iterator>
 
 namespace utils
 {
