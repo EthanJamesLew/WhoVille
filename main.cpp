@@ -18,9 +18,16 @@ int main(int argc, char *argv[])
 		num = ppl->getNumPeople();
 		unsigned int sleep(.01);
 		ppl->updateWho();
-		if (num != num2)
+		if (num != num2 )
 		{
-			std::cout << utils::vectorToStr(ppl->getDeltaPeople()) <<" has changed."<< std::endl;
+			if (ppl->getJoined().size() > 0)
+			{
+				std::cout << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
+			}
+			else
+			{
+				std::cout << utils::vectorToStr(ppl->getLeft()) << " has left." << std::endl;
+			}
 			std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
 			num2 = num;
 		}

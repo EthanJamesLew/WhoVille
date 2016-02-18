@@ -10,7 +10,8 @@ public:
 	People();
 	void updateWho();
 	void printPeople();
-	std::vector<std::string> getDeltaPeople();
+	std::vector<std::string> getJoined();
+	std::vector<std::string> getLeft();
 	unsigned getNumPeople();
 private:
 	std::vector<std::string> peopleList;

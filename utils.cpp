@@ -78,7 +78,7 @@ namespace utils
 		std::string ans;
 		for (unsigned i = 0; i < vec.size(); i++)
 		{
-			ans += vec[i] + " \n";
+			ans += vec[i] + " ";
 		}
 		return ans;
 	}
