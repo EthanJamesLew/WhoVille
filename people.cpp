@@ -82,5 +82,3 @@ void People::resetLists()
 	this->peopleList = newPeopleList;
 	return;
 }
-
-}
