@@ -12,6 +12,7 @@ public:
 	void printPeople();
 	std::vector<std::string> getJoined();
 	std::vector<std::string> getLeft();
+	std::vector<std::string> getPeopleList();
 	unsigned getNumPeople();
 	void resetLists();
 private:
