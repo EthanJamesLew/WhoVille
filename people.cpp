@@ -38,6 +38,8 @@ void People::updateWho()
 	system("sh whofile.sh");
 
 	currentPeople.open("current_people.who");
+	
+	this->newPeopleList.clear();
 
 	while (currentPeople.peek() != EOF)
 	{
