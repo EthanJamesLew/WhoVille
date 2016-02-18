@@ -45,6 +45,7 @@ void People::updateWho()
 		name = utils::indexWordinStr(buffer, 0);
 		this->newPeopleList.push_back(name);
 	}
+	this->numPeople = peopleList.size();
 }
 
 unsigned People::getNumPeople()
