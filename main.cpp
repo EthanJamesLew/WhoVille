@@ -9,10 +9,11 @@ int main(int argc, char *argv[])
 	system("sh whofile.sh");
 	
 	People *ppl = new People();
+	
+	std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
 
 	while (true)
 	{
-		std::cout << "Room size: " << ppl->getNumPeople() << std::endl;
 		unsigned int sleep(.01);
 		ppl->updateWho();
 		if (ppl->getDeltaPeople().size() != 0)
