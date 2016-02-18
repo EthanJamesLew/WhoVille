@@ -62,10 +62,6 @@ std::vector<std::string> People::getLeft()
 	std::sort(newPeopleList.begin(), newPeopleList.end());
 
 	std::set_difference(newPeopleList.begin(), newPeopleList.end(), peopleList.begin(), peopleList.end(), std::back_inserter(difference));
-	if (difference.size() > 0)
-	{
-		this->peopleList = newPeopleList;
-	}
 
 	return difference;
 }
@@ -77,11 +73,14 @@ std::vector<std::string> People::getJoined()
 	std::sort(newPeopleList.begin(), newPeopleList.end());
 
 	std::set_difference(peopleList.begin(), peopleList.end(), newPeopleList.begin(), newPeopleList.end(), std::back_inserter(difference));
-
-	if (difference.size() > 0)
-	{
-		this->peopleList = newPeopleList;
-	}
 	
 	return difference;
+}
+
+void resetLists()
+{
+	this->peopleList = newPeopleList;
+	return;
+}
+
 }
