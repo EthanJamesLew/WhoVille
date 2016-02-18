@@ -58,22 +58,9 @@ unsigned People::getNumPeople()
 std::vector<std::string> People::getDeltaPeople()
 {
 	std::vector<std::string> difference;
-	for (unsigned i = 0; i < peopleList.size(); i++)
-	{
-		if (std::find(newPeopleList.begin(), newPeopleList.end(), peopleList[i]) == newPeopleList.end())
-		{
-			difference.push_back(peopleList[i]);
-		}
-			
-	}
-	for (unsigned i = 0; i < newPeopleList.size(); i++)
-	{
-		if (std::find(peopleList.begin(), peopleList.end(), newPeopleList[i]) == peopleList.end())
-		{
-			difference.push_back(newPeopleList[i]);
-		}
+	std::sort(peopleList.begin(), peopleList.end());
+	std::sort(newPeopleList.begin(), newPeopleList.end());
 
-	}
-	this->peopleList = newPeopleList;
+	std::set_intersection(peopleList.begin(), peopleList.end(), newPeopleList.begin(), newPeopleList.end(), std::back_inserter(difference));
 	return difference;
 }
