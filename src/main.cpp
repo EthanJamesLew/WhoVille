@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 			{
 				std::vector<std::string> left = ppl->getLeft();
 				std::cout << utils::vectorToStr(ppl->getLeft()) << "has left.";
-				std::string command = "python python/sms.py -u " + utils::vectorToStr(ppl->getJoined()) + " -s offline";
+				std::string command = "python python/sms.py -u " + utils::vectorToStr(ppl->getLeft()) + " -s offline";
 				system(command.c_str());
 
 				for (unsigned i = 0; i < left.size(); i++)
