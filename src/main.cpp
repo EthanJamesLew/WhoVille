@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 			{
 				std::vector<std::string> joined = ppl->getJoined();
 				std::cout << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
+				std::string command= "python python/sms.py " + utils::vectorToStr(ppl->getJoined()) + " online";
+				system(command.c_str());
 				for (unsigned i = 0; i < joined.size(); i++)
 				{
 					users.push_back(Profiler(joined[i]));
@@ -45,6 +47,8 @@ int main(int argc, char *argv[])
 			{
 				std::vector<std::string> left = ppl->getLeft();
 				std::cout << utils::vectorToStr(ppl->getLeft()) << "has left.";
+				std::string command = "python python/sms.py " + utils::vectorToStr(ppl->getJoined()) + " offline";
+				system(command.c_str());
 
 				for (unsigned i = 0; i < left.size(); i++)
 				{
