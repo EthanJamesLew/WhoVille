@@ -101,6 +101,8 @@ namespace utils
 					names.push_back(buffer);
 				}
 			}
+			catch(...)
+			{ }
 
 		}
 		return names;
