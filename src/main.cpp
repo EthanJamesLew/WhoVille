@@ -36,8 +36,14 @@ int main(int argc, char *argv[])
 			if (ppl->getJoined().size() > 0)
 			{
 				std::vector<std::string> joined = ppl->getJoined();
+<<<<<<< HEAD
 				std::cout << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
 			
+=======
+				std::cout <<utils::getTimeAsStr()<<": "  << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
+				std::string command= "python python/sms.py -u " + utils::vectorToStr(ppl->getJoined()) + " -s online";
+				system(command.c_str());
+>>>>>>> origin/master
 				for (unsigned i = 0; i < joined.size(); i++)
 				{
 					if (std::find(users.begin(), users.end(), joined[i]) != users.end())
@@ -52,7 +58,13 @@ int main(int argc, char *argv[])
 			else
 			{
 				std::vector<std::string> left = ppl->getLeft();
+<<<<<<< HEAD
 				std::cout <<utils::getTimeAsStr()<<": " <<utils::vectorToStr(ppl->getLeft()) << "has left.";
+=======
+				std::cout  <<utils::getTimeAsStr()<<": " << utils::vectorToStr(ppl->getLeft()) << "has left.";
+				std::string command = "python python/sms.py -u " + utils::vectorToStr(ppl->getLeft()) + " -s offline";
+				system(command.c_str());
+>>>>>>> origin/master
 
 				for (unsigned i = 0; i < left.size(); i++)
 				{

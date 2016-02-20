@@ -45,17 +45,17 @@ class SMSBase(object):
 
 if __name__ == '__main__':
 	today = datetime.datetime.now()
-    date = str(today.strftime('%H;%M'))
-    mySMS = SMSBase('python/sms.conf')
+    	date = str(today.strftime('%H;%M'))
+    	mySMS = SMSBase('python/sms.conf')
 	parser = argparse.ArgumentParser()
-    parser.add_argument('-u', '--users', nargs='+', type=str)
-    parser.add_argument('-s', '--status', type=str)
-    args = parser.parse_args()
-    users = ""
-    for i in args.users:
-        users += i + ", "
-    msg = readTemplate('sms.template') % (date, users, args.status )
-    mySMS.sendSMS(msg)
+	parser.add_argument('-u', '--users', nargs='+', type=str)
+    	parser.add_argument('-s', '--status', type=str)
+    	args = parser.parse_args()
+    	users = ""
+    	for i in args.users:
+        	users += i + ", "
+    	msg = readTemplate('python/sms.template') % (date, users, args.status )
+    	mySMS.sendSMS(msg)
 
 	
     
