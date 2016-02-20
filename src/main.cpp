@@ -12,8 +12,9 @@ int main(int argc, char *argv[])
 	int num = 0;
 	int num2 =0;
 	
-	std::vector<std::string> alert = utils::strInFile("conf/users_sms.conf");
 
+	std::vector<std::string> alert = utils::strInFile("conf/users_sms.conf");
+	
 	People *ppl = new People();
 
 	std::vector<Profiler> users;
@@ -36,17 +37,10 @@ int main(int argc, char *argv[])
 			if (ppl->getJoined().size() > 0)
 			{
 				std::vector<std::string> joined = ppl->getJoined();
-<<<<<<< HEAD
-				std::cout << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
-			
-=======
 				std::cout <<utils::getTimeAsStr()<<": "  << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
-				std::string command= "python python/sms.py -u " + utils::vectorToStr(ppl->getJoined()) + " -s online";
-				system(command.c_str());
->>>>>>> origin/master
 				for (unsigned i = 0; i < joined.size(); i++)
 				{
-					if (std::find(users.begin(), users.end(), joined[i]) != users.end())
+					if (std::find(alert.begin(), alert.end(), joined[i]) != alert.end())
 					{
 						std::string command = "python python/sms.py " + joined[i] + " online";
 						system(command.c_str());
@@ -58,13 +52,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				std::vector<std::string> left = ppl->getLeft();
-<<<<<<< HEAD
 				std::cout <<utils::getTimeAsStr()<<": " <<utils::vectorToStr(ppl->getLeft()) << "has left.";
-=======
-				std::cout  <<utils::getTimeAsStr()<<": " << utils::vectorToStr(ppl->getLeft()) << "has left.";
-				std::string command = "python python/sms.py -u " + utils::vectorToStr(ppl->getLeft()) + " -s offline";
-				system(command.c_str());
->>>>>>> origin/master
 
 				for (unsigned i = 0; i < left.size(); i++)
 				{
@@ -73,7 +61,7 @@ int main(int argc, char *argv[])
 						if (users[j].getName() == left[i])
 						{
 							std::cout <<" Time spent on server: "<< users[j].getMinSpent() <<" minutes."<<std::endl;
-							if (std::find(users.begin(), users.end(), left[i]) != users.end())
+							if (std::find(alert.begin(), alert.end(), left[i]) != alert.end())
 							{
 								std::string command = "python python/sms.py " + left[i] + " offline";
 								system(command.c_str());
