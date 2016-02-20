@@ -82,4 +82,23 @@ namespace utils
 		}
 		return ans;
 	}
+
+
+	std::vector<std::string> nameInFile(std::string &fileName)
+	{
+		std::ifstream inFile;
+		inFile.open(fileName.c_str());
+		std::string buffer;
+		std::vector<std::string> names;
+
+		while (inFile.peek() != EOF)
+		{
+			getline(inFile, buffer);
+			if (buffer.at(0) != '#')
+			{
+				names.push_back(buffer);
+			}
+		}
+		return names;
+	}
 }

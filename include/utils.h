@@ -27,4 +27,6 @@ namespace utils
 
 	std::string vectorToStr(std::vector<std::string> vec);
 
+	std::vector<std::string> nameInFile();
+
 }

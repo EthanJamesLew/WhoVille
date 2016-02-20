@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 	int num = 0;
 	int num2 =0;
 	
+	std::vector<std::string> alert = utils::nameInFile('conf/users_sms.conf');
+
 	People *ppl = new People();
 
 	std::vector<Profiler> users;
@@ -35,10 +37,14 @@ int main(int argc, char *argv[])
 			{
 				std::vector<std::string> joined = ppl->getJoined();
 				std::cout << utils::vectorToStr(ppl->getJoined()) << " has joined." << std::endl;
-				std::string command= "python python/sms.py " + utils::vectorToStr(ppl->getJoined()) + " online";
-				system(command.c_str());
+			
 				for (unsigned i = 0; i < joined.size(); i++)
 				{
+					if (std::find(users.begin(), users.end(), joined[i]) != users.end())
+					{
+						std::string command = "python python/sms.py " + joined[i] + " online";
+						system(command.c_str());
+					}
 					users.push_back(Profiler(joined[i]));
 				}
 				
@@ -46,9 +52,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				std::vector<std::string> left = ppl->getLeft();
-				std::cout << utils::vectorToStr(ppl->getLeft()) << "has left.";
-				std::string command = "python python/sms.py " + utils::vectorToStr(ppl->getJoined()) + " offline";
-				system(command.c_str());
+				std::cout <<utils::getTimeAsStr()<<": " <<utils::vectorToStr(ppl->getLeft()) << "has left.";
 
 				for (unsigned i = 0; i < left.size(); i++)
 				{
@@ -57,6 +61,11 @@ int main(int argc, char *argv[])
 						if (users[j].getName() == left[i])
 						{
 							std::cout <<" Time spent on server: "<< users[j].getMinSpent() <<" minutes."<<std::endl;
+							if (std::find(users.begin(), users.end(), left[i]) != users.end())
+							{
+								std::string command = "python python/sms.py " + left[i] + " offline";
+								system(command.c_str());
+							}
 							users.erase(users.begin() + j);
 						}
 					}
