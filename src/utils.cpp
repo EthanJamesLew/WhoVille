@@ -105,6 +105,7 @@ namespace utils
 			{ }
 
 		}
+		inFile.close();
 		return names;
 	}
 }

@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 				{
 					if (std::find(alert.begin(), alert.end(), joined[i]) != alert.end())
 					{
-						std::string command = "python python/sms.py " + joined[i] + " online";
+						std::string command = "python python/sms.py -u " + joined[i] + " -s online";
 						system(command.c_str());
 					}
 					users.push_back(Profiler(joined[i]));
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 							std::cout <<" Time spent on server: "<< users[j].getMinSpent() <<" minutes."<<std::endl;
 							if (std::find(alert.begin(), alert.end(), left[i]) != alert.end())
 							{
-								std::string command = "python python/sms.py " + left[i] + " offline";
+								std::string command = "python python/sms.py -u " + left[i] + " -s offline";
 								system(command.c_str());
 							}
 							users.erase(users.begin() + j);
