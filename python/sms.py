@@ -1,5 +1,9 @@
+#!/usr/bin/python3
+
 import smtplib
 import sys
+import argparse
+import datetime
 
 def readConf(fileName): 
     d = {}
@@ -35,11 +39,23 @@ class SMSBase(object):
         self.server.starttls()
         self.server.login(self.dictionary['GMAIL_USERNAME'], self.dictionary['GMAIL_PASSWD'])
         
-    def sendSMS(self, receiver, msg):
+    def sendSMS(self, msg):
         self.server.sendmail('', self.dictionary['RECEIVER']+'@'+self.dictionary['SMS_GATE'], msg )
         return
 
 if __name__ == '__main__':
-    mySMS = SMSBase('sms.conf')
-    mySMS.sendSMS('', readTemplate('sms.template') % (sys.argv[1],sys.argv[2]))
+	today = datetime.datetime.now()
+    date = str(today.strftime('%H;%M'))
+    mySMS = SMSBase('python/sms.conf')
+	parser = argparse.ArgumentParser()
+    parser.add_argument('-u', '--users', nargs='+', type=str)
+    parser.add_argument('-s', '--status', type=str)
+    args = parser.parse_args()
+    users = ""
+    for i in args.users:
+        users += i + ", "
+    msg = readTemplate('sms.template') % (date, users, args.status )
+    mySMS.sendSMS(msg)
+
+	
     
