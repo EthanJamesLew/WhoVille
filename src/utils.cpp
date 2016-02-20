@@ -94,10 +94,14 @@ namespace utils
 		while (inFile.peek() != EOF)
 		{
 			getline(inFile, buffer);
-			if (buffer.at(0) != '#')
+			try
 			{
-				names.push_back(buffer);
+				if (buffer.at(0) != '#')
+				{
+					names.push_back(buffer);
+				}
 			}
+
 		}
 		return names;
 	}
