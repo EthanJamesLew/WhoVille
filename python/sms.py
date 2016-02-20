@@ -41,6 +41,5 @@ class SMSBase(object):
 
 if __name__ == '__main__':
     mySMS = SMSBase('sms.conf')
-    mySMS.sendSMS('3107137355', readTemplate('sms.template') % (sys.argv[0],sys.argv[1]))
-    #mySMS.sendSMS('3107137355', readTemplate('sms.template') % ('ethan', 'online'))
+    mySMS.sendSMS('', readTemplate('sms.template') % (sys.argv[1],sys.argv[2]))
     
