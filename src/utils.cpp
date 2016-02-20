@@ -84,7 +84,7 @@ namespace utils
 	}
 
 
-	std::vector<std::string> nameInFile(std::string &fileName)
+	std::vector<std::string> strInFile(std::string fileName)
 	{
 		std::ifstream inFile;
 		inFile.open(fileName.c_str());

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	int num = 0;
 	int num2 =0;
 	
-	std::vector<std::string> alert = utils::nameInFile('conf/users_sms.conf');
+	std::vector<std::string> alert = utils::strInFile("conf/users_sms.conf");
 
 	People *ppl = new People();
 
