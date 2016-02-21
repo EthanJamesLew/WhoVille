@@ -33,7 +33,7 @@ Profiler::Profiler(std::string name)
 	{
 		outFile.open("who/" + this->UserName + ".who");
 		outFile << "THIS IS A.WHO FILE.OPEN IT IN EXCEL FOR READIBILITY AND ANALYSIS, , , ," << std::endl;
-		outFile << "User, people.mcperson	, , ," << std::endl;
+		outFile << "User," + this->UserName +", , ," << std::endl;
 		outFile << ", , , ," << std::endl;
 		outFile << "Logins, Time Start, Time End, Total Time (min), IP Address" << std::endl;
 		outFile.close();
