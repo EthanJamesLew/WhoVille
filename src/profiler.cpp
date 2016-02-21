@@ -83,7 +83,7 @@ void Profiler::writePersonToFile()
 		outFile << "Logins, Time Start, Time End, Total Time (min), IP Address" << std::endl;
 		outFile.close();
 	}
-	outFile2.open("who/" + this->UserName + ".who");
+	outFile2.open("who/" + this->UserName + ".who", std::ios_base::app);
 	outFile2 << utils::getDateAsStr()<<", "<<this->timeStarted << ", " << utils::getTimeAsStr() << ", " << this->getMinSpent() << ", " << this->ipAddr << std::endl;
 	outFile2.close();
 	return;
