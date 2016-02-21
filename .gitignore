@@ -4,3 +4,11 @@
 *.vcxproj
 Whoville/Whoville.vcxproj.filters
 *.sln
+*.filters
+*.obj
+*.log
+WhovilleTester/Debug/WhovilleTester.tlog/link-cvtres.read.1.tlog
+*.lastbuildstate
+*.idb
+*.tlog
+Whoville/Debug/vc140.pdb

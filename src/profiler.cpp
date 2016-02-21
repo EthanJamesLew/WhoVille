@@ -7,6 +7,7 @@ Profiler::Profiler(std::string name)
 
 	std::string person = "";
 	std::ifstream currentPeople;
+	std::ofstream outFile;
 
 	if (utils::fileExists(name + ".who"))
 	{
@@ -27,6 +28,16 @@ Profiler::Profiler(std::string name)
 	}
 	currentPeople.close();
 	this->minStarted = utils::getStrTimeInMin(timeStarted);
+
+	if (utils::fileExists("who/" + this->UserName + ".who") == false)
+	{
+		outFile.open("who/" + this->UserName + ".who");
+		outFile << "THIS IS A.WHO FILE.OPEN IT IN EXCEL FOR READIBILITY AND ANALYSIS, , , ," << std::endl;
+		outFile << "User, people.mcperson	, , ," << std::endl;
+		outFile << ", , , ," << std::endl;
+		outFile << "Logins, Time Start, Time End, Total Time (min), IP Address" << std::endl;
+		outFile.close();
+	}
 
 }
 
@@ -62,6 +73,7 @@ int Profiler::getMinSpent()
 void Profiler::writePersonToFile()
 {
 	std::ofstream outFile;
+	std::ofstream outFile2;
 	if (utils::fileExists("who/"+this->UserName + ".who") == false)
 	{
 		outFile.open("who/" + this->UserName + ".who");
@@ -71,8 +83,8 @@ void Profiler::writePersonToFile()
 		outFile << "Logins, Time Start, Time End, Total Time (min), IP Address" << std::endl;
 		outFile.close();
 	}
-	outFile.open("who/" + this->UserName + ".who");
-	outFile << utils::getDateAsStr()<<", "<<this->timeStarted << ", " << utils::getTimeAsStr() << ", " << this->getMinSpent() << ", " << this->ipAddr << std::endl;
-	outFile.close();
+	outFile2.open("who/" + this->UserName + ".who");
+	outFile2 << utils::getDateAsStr()<<", "<<this->timeStarted << ", " << utils::getTimeAsStr() << ", " << this->getMinSpent() << ", " << this->ipAddr << std::endl;
+	outFile2.close();
 	return;
 }
