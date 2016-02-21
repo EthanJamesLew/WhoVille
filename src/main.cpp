@@ -68,9 +68,9 @@ int main(int argc, char *argv[])
 							if (std::find(alert.begin(), alert.end(), left[i]) != alert.end())
 							{
 								std::string command = "python python/sms.py -u " + left[i] + " -s offline";
+								users[j].writePersonToFile();
 								system(command.c_str());
 							}
-							users[j].writePersonToFile();
 							users.erase(users.begin() + j);
 						}
 					}
