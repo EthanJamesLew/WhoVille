@@ -65,15 +65,16 @@ int main(int argc, char *argv[])
 						if (users[j].getName() == left[i])
 						{
 							std::cout <<" Time spent on server: "<< users[j].getMinSpent() <<" minutes."<<std::endl;
+							users[j].writePersonToFile();
 							if (std::find(alert.begin(), alert.end(), left[i]) != alert.end())
 							{
 								std::string command = "python python/sms.py -u " + left[i] + " -s offline";
-								users[j].writePersonToFile();
 								system(command.c_str());
 							}
 							users.erase(users.begin() + j);
 						}
 					}
+	
 				}
 
 			}
