@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
-		if (counter < 1000)
+		if (counter < 10000)
 		{
 			counter = 0;
 			std::string CheckEcommand = "python python/emailCSV.py";

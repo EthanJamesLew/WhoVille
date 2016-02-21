@@ -1,6 +1,6 @@
 def readConf(fileName): 
     d = {}
-    with open("../conf/" + fileName) as f:
+    with open("conf/" + fileName) as f:
         for line in f:
             if line[0] != '#':                
                 try:
@@ -12,7 +12,7 @@ def readConf(fileName):
 
 def readTemplate(fileName):
     data = ""
-    with open("../conf/" +fileName, 'r') as myfile:
+    with open("conf/" +fileName, 'r') as myfile:
         for line in myfile:
             if line[0] != '#':                
                 try:

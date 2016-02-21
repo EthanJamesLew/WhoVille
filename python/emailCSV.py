@@ -17,7 +17,7 @@ def sendEmail(fileName, receiver, extension='csv'):
 
     if os.path.isfile(fileName):
         attachFile = open(fileName)
-        htmlFile = open('../html/email_success.html')
+        htmlFile = open('html/email_success.html')
 
         ##Build out the success email
         msg = MIMEMultipart()
@@ -31,7 +31,7 @@ def sendEmail(fileName, receiver, extension='csv'):
         attachFile.add_header('Content-Disposition', 'attachment',  filename=fileName)
         msg.attach(attachFile)
     else:
-        htmlFile = open('../html/email_failure.html')
+        htmlFile = open('html/email_failure.html')
 
         ##Build out the failure email
         msg = MIMEMultipart()
