@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 {
 	system("sh whofile.sh");
 
+	int counter = 0;
 
 	std::vector<std::string> alert = utils::strInFile("conf/users_sms.conf");
 	
@@ -26,6 +27,13 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
+		if (counter < 1000)
+		{
+			counter = 0;
+			std::string CheckEcommand = "python python/emailCSV.py";
+			system(CheckEcommand.c_str());
+		}
+		++counter;
 		unsigned int sleep(.01);
 		ppl->updateWho();
 		if (ppl->getJoined().size() > 0 ||  ppl->getLeft().size() > 0)
