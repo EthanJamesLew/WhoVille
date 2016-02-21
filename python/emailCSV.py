@@ -15,7 +15,7 @@ from utils import *
 def sendEmail(fileName, receiver, extension='csv'):
     dictionary = readConf('sms.conf')
 
-    if os.path.isfile(fileName):
+    if os.path.isfile("who/"+fileName+".who"):
         attachFile = open(fileName)
         htmlFile = open('html/email_success.html')
 
@@ -28,7 +28,7 @@ def sendEmail(fileName, receiver, extension='csv'):
         attachFile = MIMEBase('application', extension)
         attachFile.set_payload(attachFile.read())
         Encoders.encode_base64(attachFile)
-        attachFile.add_header('Content-Disposition', 'attachment',  filename=fileName)
+        attachFile.add_header('Content-Disposition', 'attachment',  filename=fileName[:-4]+'.csv')
         msg.attach(attachFile)
     else:
         htmlFile = open('html/email_failure.html')
@@ -68,9 +68,7 @@ def checkSendEmail():
         typ, msg_data = obj.fetch(obj.select()[1][0], '(BODY.PEEK[TEXT])')
         myList = msg_data[0][len(msg_data)-1].split('\n')
         txt = myList[len(myList)-4]
-        sendEmail(txt[:-1] + '.csv', dictionary['RECEIVER_EMAIL'])
-    else:
-        print "Not sending email"
+        sendEmail(txt[:-1] + '.who', dictionary['RECEIVER_EMAIL'])
     return
 
 if __name__=='__main__':
