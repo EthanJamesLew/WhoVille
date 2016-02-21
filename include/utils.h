@@ -30,5 +30,6 @@ namespace utils
 
 	std::vector<std::string> strInFile(std::string fileName);
 
+	std::string getDateAsStr();
 
 }

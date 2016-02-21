@@ -8,6 +8,7 @@ class Profiler
 {
 public:
 	Profiler(std::string name);
+	~Profiler();
 	std::string getName();
 	std::string getTimeSpent();
 	std::string getTimeStarted();

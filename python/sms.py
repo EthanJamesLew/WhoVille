@@ -45,7 +45,7 @@ class SMSBase(object):
 
 if __name__ == '__main__':
 	today = datetime.datetime.now()
-    	date = str(today.strftime('%H;%M'))
+    	date = str(today.strftime('''%H.%M'''))
     	mySMS = SMSBase('python/sms.conf')
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-u', '--users', nargs='+', type=str)

@@ -30,6 +30,12 @@ Profiler::Profiler(std::string name)
 
 }
 
+
+Profiler::~Profiler()
+{
+	Profiler::writePersonToFile();
+}
+
 std::string Profiler::getTimeStarted()
 {
 	return timeStarted;
@@ -55,4 +61,18 @@ int Profiler::getMinSpent()
 
 void Profiler::writePersonToFile()
 {
+	std::ofstream outFile;
+	if (utils::fileExists("who/"+this->UserName + ".who") == false)
+	{
+		outFile.open("who/" + this->UserName + ".who");
+		outFile << "THIS IS A.WHO FILE.OPEN IT IN EXCEL FOR READIBILITY AND ANALYSIS, , , ," << std::endl;
+		outFile << "User, people.mcperson	, , ," << std::endl;
+		outFile << ", , , ," << std::endl;
+		outFile << "Logins, Time Start, Time End, Total Time (min), IP Address" << std::endl;
+		outFile.close();
+	}
+	outFile.open("who/" + this->UserName + ".who");
+	outFile << utils::getDateAsStr()<<", "<<this->timeStarted << ", " << utils::getTimeAsStr() << ", " << this->getMinSpent() << ", " << this->ipAddr << std::endl;
+	outFile.close();
+	return;
 }

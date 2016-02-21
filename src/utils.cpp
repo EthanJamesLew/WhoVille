@@ -108,4 +108,18 @@ namespace utils
 		inFile.close();
 		return names;
 	}
+	std::string getDateAsStr()
+	{
+		time_t rawtime;
+		struct tm * timeinfo;
+		char buffer[80];
+
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+
+		strftime(buffer, 80, "%m/%d/%Y", timeinfo);
+		std::string str(buffer);
+		return str;
+	}
 }
+
