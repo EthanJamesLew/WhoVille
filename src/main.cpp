@@ -8,10 +8,7 @@
 int main(int argc, char *argv[])
 {
 	system("sh whofile.sh");
-	
-	int num = 0;
-	int num2 =0;
-	
+
 
 	std::vector<std::string> alert = utils::strInFile("conf/users_sms.conf");
 	
@@ -29,7 +26,6 @@ int main(int argc, char *argv[])
 
 	while (true)
 	{
-		num = ppl->getNumPeople();
 		unsigned int sleep(.01);
 		ppl->updateWho();
 		if (ppl->getJoined().size() > 0 ||  ppl->getLeft().size() > 0)
@@ -66,6 +62,7 @@ int main(int argc, char *argv[])
 								std::string command = "python python/sms.py -u " + left[i] + " -s offline";
 								system(command.c_str());
 							}
+							users[j].writePersonToFile();
 							users.erase(users.begin() + j);
 						}
 					}
